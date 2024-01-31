@@ -55,7 +55,7 @@ import {ColorPickerManager} from 'oltb/src/oltb/js/managers/ColorPickerManager'
 import {AccessibilityManager} from 'oltb/src/oltb/js/managers/AccessibilityManager'
 
 // Toolbar Tools
-import {HomeTool} from 'oltb'
+import {HomeTool} from 'oltb/src/oltb/js/tools/HomeTool'
 import {HiddenMarkerTool} from 'oltb/src/oltb/js/tools/hidden-tools/HiddenMarkerTool'
 import {HiddenMapNavigationTool} from 'oltb/src/oltb/js/tools/hidden-tools/HiddenMapNavigationTool'
 import {HiddenAboutTool} from 'oltb/src/oltb/js/tools/hidden-tools/HiddenAboutTool'
