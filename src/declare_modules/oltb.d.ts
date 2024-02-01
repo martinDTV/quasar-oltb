@@ -31,4 +31,6 @@ declare module 'oltb/src/oltb/js/tools/hidden-tools/HiddenMarkerTool';
 declare module 'oltb/src/oltb/js/tools/hidden-tools/HiddenMapNavigationTool';
 declare module 'oltb/src/oltb/js/tools/hidden-tools/HiddenAboutTool';
 declare module 'oltb/src/oltb/js/tools/ZoomInTool'
+declare module 'oltb/src/oltb/js/tools/ZoomOutTool'
 declare module 'oltb/src/oltb/js/tools/FullscreenTool'
+declare module 'oltb/src/oltb/js/tools/LayerTool'

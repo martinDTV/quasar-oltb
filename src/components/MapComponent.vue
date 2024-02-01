@@ -61,8 +61,9 @@ import { HiddenMarkerTool } from 'oltb/src/oltb/js/tools/hidden-tools/HiddenMark
 import { HiddenMapNavigationTool } from 'oltb/src/oltb/js/tools/hidden-tools/HiddenMapNavigationTool';
 import {HiddenAboutTool} from 'oltb/src/oltb/js/tools/hidden-tools/HiddenAboutTool';
 import {ZoomInTool} from 'oltb/src/oltb/js/tools/ZoomInTool'
+import {ZoomOutTool} from 'oltb/src/oltb/js/tools/ZoomOutTool'
 import {FullscreenTool} from 'oltb/src/oltb/js/tools/FullscreenTool';
-
+import {LayerTool} from 'oltb/src/oltb/js/tools/LayerTool'
 BootstrapManager.initAsync([
   { manager: LogManager },
     { manager: StyleManager },
@@ -198,6 +199,61 @@ const initMapAndToolbar = () => {
                 },
                 onZoomed: function(result: any) {
                     console.log('ZoomInTool: Zoomed in', result);
+                }
+            }),
+            new ZoomOutTool({
+                onInitiated: function() {
+                    console.log('ZoomOutTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('ZoomOutTool: Clicked');
+                },
+                onZoomed: function(result: any) {
+                    console.log('ZoomOutTool: Zoomed out', result);
+                }
+            }),
+            new LayerTool({
+                onInitiated: function() {
+                    console.log('LayerTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('LayerTool: Clicked');
+                },
+                onBrowserStateCleared: function() {
+                    console.log('LayerTool: State cleared');
+                },
+                onMapLayerAdded: function(layerWrapper: any) {
+                    console.log('LayerTool: Map layer added', layerWrapper);
+                },
+                onMapLayerRemoved: function(layerWrapper: any) {
+                    console.log('LayerTool: Map layer removed', layerWrapper);
+                },
+                onMapLayerRenamed: function(layerWrapper: any) {
+                    console.log('LayerTool: Map layer renamed', layerWrapper);
+                },
+                onMapLayerVisibilityChanged: function(layerWrapper: any) {
+                    console.log('LayerTool: Map layer visibility change', layerWrapper);
+                },
+                onMapLayerDragged(item: any, list: any) {
+                    console.log('LayerTool: Map layer dragged', item, list);
+                },
+                onFeatureLayerAdded: function(layerWrapper: any) {
+                    console.log('LayerTool: Feature layer added', layerWrapper);
+                },
+                onFeatureLayerRemoved: function(layerWrapper: any) {
+                    console.log('LayerTool: Feature layer removed', layerWrapper);
+                },
+                onFeatureLayerRenamed: function(layerWrapper: any) {
+                    console.log('LayerTool: Feature layer renamed', layerWrapper);
+                },
+                onFeatureLayerVisibilityChanged: function(layerWrapper: any) {
+                    console.log('LayerTool: Feature layer visibility change', layerWrapper);
+                },
+                onFeatureLayerDownloaded: function(layerWrapper: any, filename: any, content: any) {
+                    console.log('LayerTool: Feature layer downloaded', layerWrapper, filename, content);
+                },
+                onFeatureLayerDragged(item: any, list: any) {
+                    console.log('LayerTool: Feature layer dragged', item, list);
                 }
             }),
             new FullscreenTool({
