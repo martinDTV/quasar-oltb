@@ -22,43 +22,44 @@ import '../layers/Maps'
 //import '../layers/Continents'
 
 // Browser prototype extensions
-import 'oltb/src/oltb/js/helpers/extensions/Cycle'
-import 'oltb/src/oltb/js/helpers/prototypes/String'
-import 'oltb/src/oltb/js/helpers/prototypes/SlideToggle'
+import 'oltb/src/oltb/js/helpers/extensions/Cycle';
+import 'oltb/src/oltb/js/helpers/prototypes/String';
+import 'oltb/src/oltb/js/helpers/prototypes/SlideToggle';
 
 // Core Toolbar
-import 'oltb/src/oltb/scss/oltb.scss'
-import {Settings} from 'oltb/src/oltb/js/helpers/constants/Settings'
-import {ContextMenu} from 'oltb/src/oltb/js/common/ContextMenu'
-import {LocalStorageKeys} from 'oltb/src/oltb/js/helpers/constants/LocalStorageKeys'
+import 'oltb/src/oltb/scss/oltb.scss';
+import {Settings} from 'oltb/src/oltb/js/helpers/constants/Settings';
+import {ContextMenu} from 'oltb/src/oltb/js/common/ContextMenu';
+import {LocalStorageKeys} from 'oltb/src/oltb/js/helpers/constants/LocalStorageKeys';
 
 // Core Managers
 import {LogManager} from 'oltb/src/oltb/js/managers/LogManager';
-import {UrlManager} from 'oltb/src/oltb/js/managers/UrlManager'
-import {ToolManager} from 'oltb/src/oltb/js/managers/ToolManager'
-import {SnapManager} from 'oltb/src/oltb/js/managers/SnapManager'
-import {StyleManager} from 'oltb/src/oltb/js/managers/StyleManager'
+import {UrlManager} from 'oltb/src/oltb/js/managers/UrlManager';
+import {ToolManager} from 'oltb/src/oltb/js/managers/ToolManager';
+import {SnapManager} from 'oltb/src/oltb/js/managers/SnapManager';
+import {StyleManager} from 'oltb/src/oltb/js/managers/StyleManager';
 import {LayerManager} from 'oltb/src/oltb/js/managers/LayerManager';
-import {StateManager} from 'oltb/src/oltb/js/managers/StateManager'
-import {TippyManager} from 'oltb/src/oltb/js/managers/TippyManager'
-import {ErrorManager} from 'oltb/src/oltb/js/managers/ErrorManager'
-import {ConfigManager} from 'oltb/src/oltb/js/managers/ConfigManager'
-import {ElementManager} from 'oltb/src/oltb/js/managers/ElementManager'
-import {TooltipManager} from 'oltb/src/oltb/js/managers/TooltipManager'
+import {StateManager} from 'oltb/src/oltb/js/managers/StateManager';
+import {TippyManager} from 'oltb/src/oltb/js/managers/TippyManager';
+import {ErrorManager} from 'oltb/src/oltb/js/managers/ErrorManager';
+import {ConfigManager} from 'oltb/src/oltb/js/managers/ConfigManager';
+import {ElementManager} from 'oltb/src/oltb/js/managers/ElementManager';
+import {TooltipManager} from 'oltb/src/oltb/js/managers/TooltipManager';
 import {FeatureManager} from 'oltb/src/oltb/js/managers/FeatureManager';
-import {SettingsManager} from 'oltb/src/oltb/js/managers/SettingsManager'
-import {BootstrapManager} from 'oltb/src/oltb/js/managers/BootstrapManager'
-import {InfoWindowManager} from 'oltb/src/oltb/js/managers/InfoWindowManager'
-import {ProjectionManager} from 'oltb/src/oltb/js/managers/ProjectionManager'
-import {TranslationManager} from 'oltb/src/oltb/js/managers/TranslationManager'
-import {ColorPickerManager} from 'oltb/src/oltb/js/managers/ColorPickerManager'
-import {AccessibilityManager} from 'oltb/src/oltb/js/managers/AccessibilityManager'
+import {SettingsManager} from 'oltb/src/oltb/js/managers/SettingsManager';
+import {BootstrapManager} from 'oltb/src/oltb/js/managers/BootstrapManager';
+import {InfoWindowManager} from 'oltb/src/oltb/js/managers/InfoWindowManager';
+import {ProjectionManager} from 'oltb/src/oltb/js/managers/ProjectionManager';
+import {TranslationManager} from 'oltb/src/oltb/js/managers/TranslationManager';
+import {ColorPickerManager} from 'oltb/src/oltb/js/managers/ColorPickerManager';
+import {AccessibilityManager} from 'oltb/src/oltb/js/managers/AccessibilityManager';
+
 
 // Toolbar Tools
-import {HomeTool} from 'oltb/src/oltb/js/tools/HomeTool'
-import {HiddenMarkerTool} from 'oltb/src/oltb/js/tools/hidden-tools/HiddenMarkerTool'
-import {HiddenMapNavigationTool} from 'oltb/src/oltb/js/tools/hidden-tools/HiddenMapNavigationTool'
-import {HiddenAboutTool} from 'oltb/src/oltb/js/tools/hidden-tools/HiddenAboutTool'
+import { HomeTool } from 'oltb/src/oltb/js/tools/HomeTool';
+import { HiddenMarkerTool } from 'oltb/src/oltb/js/tools/hidden-tools/HiddenMarkerTool';
+import { HiddenMapNavigationTool } from 'oltb/src/oltb/js/tools/hidden-tools/HiddenMapNavigationTool';
+import {HiddenAboutTool} from 'oltb/src/oltb/js/tools/hidden-tools/HiddenAboutTool';
 
 BootstrapManager.initAsync([
   { manager: LogManager },
