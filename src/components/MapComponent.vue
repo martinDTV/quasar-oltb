@@ -205,3 +205,7 @@ const initMapAndToolbar = () => {
     BootstrapManager.ready();
 }
 </script>
+
+<style scoped>
+
+</style>
