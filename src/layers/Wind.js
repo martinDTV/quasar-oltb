@@ -1,4 +1,3 @@
-import urlCapitalsGeoJson from '../geojson/capitals.geojson';
 
 import {Toast} from 'oltb/src/oltb/js/common/Toast';
 import {LogManager} from 'oltb/src/oltb/js/managers/LogManager';
@@ -92,7 +91,7 @@ const parseGeoJson = function(data) {
     });
 }
 
-fetch(urlCapitalsGeoJson)
+fetch('../geojson/capitals.geojson')
     .then((response) => {
         if(!response.ok) {
             throw new Error('Failed to fetch local geojson', {

@@ -6,7 +6,6 @@ import {Vector as VectorLayer} from 'ol/layer'
 import {Vector as VectorSource} from 'ol/source'
 
 // Url imports
-import urlContinentsGeoJson from '../geojson/continents.geojson';
 
 LayerManager.addMapLayers([
     {
@@ -14,7 +13,7 @@ LayerManager.addMapLayers([
         name: 'Continents Overlay',
         layer: new VectorLayer({
             source: new VectorSource({
-                url: urlContinentsGeoJson,
+                url: '../geojson/continents.geojson',
                 format: new GeoJSON({
                     featureProjection: ConfigManager.getConfig().projection.default
                 })

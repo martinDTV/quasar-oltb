@@ -20,7 +20,7 @@ LayerManager.addMapLayers([
                 attributions: 'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer">ArcGIS</a>',
                 url:'https://engine.ec.appsmty.gob.mx/stiles/5ba54d62469b11eebe7f00155d649203/{z}/{x}/{-y}.jpg'
             }),
-            visible: true
+            visible: false
         })
     },
     {

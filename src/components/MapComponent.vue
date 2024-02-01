@@ -1,6 +1,6 @@
 <template>
-  <div id="map" style="width: 100%; height: 100%">
-    <div id="oltb"></div>
+  <div id="map" class="mapa" tabindex="0">
+    <div id="oltb" ></div>
   </div>
 </template>
 <script setup lang="ts">
@@ -16,7 +16,7 @@ import { defaults as defaultInterctions, MouseWheelZoom, DragPan, DragRotate, Ke
 
 // Layers
 import '../layers/Maps'
-// import '../layers/Wind'
+//import '../layers/Wind'
 //import '../layers/Capitals'
 //import '../layers/Countries'
 //import '../layers/Continents'
@@ -60,6 +60,8 @@ import { HomeTool } from 'oltb/src/oltb/js/tools/HomeTool';
 import { HiddenMarkerTool } from 'oltb/src/oltb/js/tools/hidden-tools/HiddenMarkerTool';
 import { HiddenMapNavigationTool } from 'oltb/src/oltb/js/tools/hidden-tools/HiddenMapNavigationTool';
 import {HiddenAboutTool} from 'oltb/src/oltb/js/tools/hidden-tools/HiddenAboutTool';
+import {ZoomInTool} from 'oltb/src/oltb/js/tools/ZoomInTool'
+import {FullscreenTool} from 'oltb/src/oltb/js/tools/FullscreenTool';
 
 BootstrapManager.initAsync([
   { manager: LogManager },
@@ -104,7 +106,7 @@ const initMapAndToolbar = () => {
     const defaultProjection = ConfigManager.getConfig().projection.default;
     const map = new Map({
         interactions: defaultInterctions({
-            mouseWheelZoom: false,
+            mouseWheelZoom: true,
             altShiftDragRotate: false,
             dragPan: false,
             keyboard: false
@@ -157,13 +159,13 @@ const initMapAndToolbar = () => {
             rotate: false
         }).extend([
             new HiddenMarkerTool({
-                onAdded: function(marker: any) {
+                onAdded: function(marker: never) {
                     console.log('HiddenMarkerTool: Marker added', marker);
                 },
-                onRemoved: function(marker: any) {
+                onRemoved: function(marker: never) {
                     console.log('HiddenMarkerTool: Marker removed', marker);
                 },
-                onEdited: function(before: any, after: any) {
+                onEdited: function(before: never, after: never) {
                     console.log('HiddenMarkerTool: Marker edited', before, after);
                 }
             }),
@@ -183,8 +185,33 @@ const initMapAndToolbar = () => {
                 onBrowserStateCleared: function() {
                     console.log('HomeTool: State cleared');
                 },
-                onNavigatedHome: function(result: any) {
+                onNavigatedHome: function(result: never) {
                     console.log('HomeTool: Navigated home', result);
+                }
+            }),
+            new ZoomInTool({
+                onInitiated: function() {
+                    console.log('ZoomInTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('ZoomInTool: Clicked');
+                },
+                onZoomed: function(result: any) {
+                    console.log('ZoomInTool: Zoomed in', result);
+                }
+            }),
+            new FullscreenTool({
+                onInitiated: function() {
+                    console.log('FullscreenTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('FullscreenTool: Clicked');
+                },
+                onEnter: function(event: any) {
+                    console.log('FullscreenTool: Enter fullscreen', event);
+                },
+                onLeave: function(event: any) {
+                    console.log('FullscreenTool: Leave fullscreen', event);
                 }
             }),
             new HiddenAboutTool(),

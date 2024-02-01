@@ -1,4 +1,4 @@
-import urlCountriesGeoJson from '../geojson/countries.geojson'
+
 import {Toast} from 'oltb/src/oltb/js/common/Toast';
 import {GeoJSON} from 'ol/format';
 import {transform} from 'ol/proj';
@@ -66,7 +66,7 @@ const parseGeoJson = function(context, data, projection) {
 }
 
 const loadGeoJson = function(extent, resolution, projection, success, failure) {
-    fetch(urlCountriesGeoJson)
+    fetch('url:../geojson/countries.geojson')
         .then((response) => {
             if(!response.ok) {
                 throw new Error('Failed to fetch local geojson', {
