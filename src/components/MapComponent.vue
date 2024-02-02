@@ -1,6 +1,6 @@
 <template>
   <div id="map" class="mapa" tabindex="0">
-    <div id="oltb" ></div>
+    <div id="oltb"></div>
   </div>
 </template>
 <script setup lang="ts">
@@ -64,6 +64,26 @@ import {ZoomInTool} from 'oltb/src/oltb/js/tools/ZoomInTool'
 import {ZoomOutTool} from 'oltb/src/oltb/js/tools/ZoomOutTool'
 import {FullscreenTool} from 'oltb/src/oltb/js/tools/FullscreenTool';
 import {LayerTool} from 'oltb/src/oltb/js/tools/LayerTool'
+import {GraticuleTool} from 'oltb/src/oltb/js/tools/GraticuleTool'
+import {DrawTool} from 'oltb/src/oltb/js/tools/DrawTool'
+import {ImportVectorLayerTool} from 'oltb/src/oltb/js/tools/ImportVectorLayerTool'
+import {ResetNorthTool} from 'oltb/src/oltb/js/tools/ResetNorthTool'
+import {MeasureTool} from 'oltb/src/oltb/js/tools/MeasureTool'
+import {CoordinatesTool} from 'oltb/src/oltb/js/tools/CoordinatesTool'
+import {InfoTool} from 'oltb/src/oltb/js/tools/InfoTool'
+import {SplitViewTool} from 'oltb/src/oltb/js/tools/SplitViewTool'
+import {ThemeTool} from 'oltb/src/oltb/js/tools/ThemeTool'
+import {DirectionTool} from 'oltb/src/oltb/js/tools/DirectionTool'
+import {BookmarkTool} from 'oltb/src/oltb/js/tools/BookmarkTool'
+import {SettingsTool} from 'oltb/src/oltb/js/tools/SettingsTool'
+import {ExportPngTool} from 'oltb/src/oltb/js/tools/ExportPngTool'
+import {EditTool} from 'oltb/src/oltb/js/tools/EditTool'
+import {OverviewTool} from 'oltb/src/oltb/js/tools/OverviewTool'
+import {MagnifyTool} from 'oltb/src/oltb/js/tools/MagnifyTool'
+import {HelpTool} from 'oltb/src/oltb/js/tools/HelpTool'
+import {MyLocationTool} from 'oltb/src/oltb/js/tools/MyLocationTool'
+import {DebugInfoTool} from 'oltb/src/oltb/js/tools/DebugInfoTool'
+
 BootstrapManager.initAsync([
   { manager: LogManager },
     { manager: StyleManager },
@@ -256,6 +276,182 @@ const initMapAndToolbar = () => {
                     console.log('LayerTool: Feature layer dragged', item, list);
                 }
             }),
+            new ImportVectorLayerTool({
+                onInitiated: function() {
+                    console.log('ImportVectorLayerTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('ImportVectorLayerTool: Clicked');
+                },
+                onImported: function(features: any) {
+                    console.log('ImportVectorLayerTool: Imported', features);
+                },
+                onError: function(filename: any, error: any) {
+                    console.log('ImportVectorLayerTool: Error', filename, error);
+                }
+            }),
+            new ResetNorthTool({
+                onInitiated: function() {
+                    console.log('ResetNorthTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('ResetNorthTool: Clicked');
+                },
+                onReset: function(result: any) {
+                    console.log('ResetNorthTool: North reset', result);
+                }
+            }),
+            new MeasureTool({
+                onInitiated: function() {
+                    console.log('MeasureTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('MeasureTool: Clicked');
+                },
+                onBrowserStateCleared: function() {
+                    console.log('MeasureTool: State cleared');
+                },
+                onStart: function(event: any) {
+                    console.log('MeasureTool: Start');
+                },
+                onEnd: function(event: { feature: any; }) {
+                    console.log('MeasureTool: End', event.feature);
+                },
+                onAbort: function(event: any) {
+                    console.log('MeasureTool: Abort');
+                },
+                onError: function(event: any) {
+                    console.log('MeasureTool: Error');
+                }
+            }),
+            new CoordinatesTool({
+                onInitiated: function() {
+                    console.log('CoordinatesTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('CoordinatesTool: Clicked');
+                },
+                onBrowserStateCleared: function() {
+                    console.log('CoordinatesTool: State cleared');
+                },
+                onMapClicked: function(coordinates: any) {
+                    console.log('CoordinatesTool: Map clicked at', coordinates);
+                }
+            }),
+            new InfoTool({
+                title: 'Hey!',
+                content: '<p>This is a <strong>modal window</strong>, here you can place some text about your application or links to external resources.</p>',
+                onInitiated: function() {
+                    console.log('InfoTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('InfoTool: Clicked');
+                }
+            }),
+            new SplitViewTool({
+                onInitiated: function() {
+                    console.log('SplitViewTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('SplitViewTool: Clicked');
+                },
+                onBrowserStateCleared: function() {
+                    console.log('SplitViewTool: State cleared');
+                }
+            }),
+            new ThemeTool({
+                onInitiated: function() {
+                    console.log('ThemeTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('ThemeTool: Clicked');
+                },
+                onBrowserStateCleared: function() {
+                    console.log('ThemeTool: State cleared');
+                },
+                onChanged: function(theme: any) {
+                    console.log('ThemeTool: Changed to', theme);
+                }
+            }),
+            new DirectionTool({
+                onInitiated: function() {
+                    console.log('DirectionTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('DirectionTool: Clicked');
+                },
+                onBrowserStateCleared: function() {
+                    console.log('DirectionTool: State cleared');
+                },
+                onChanged: function(direction: any) {
+                    console.log('DirectionTool: Changed to', direction);
+                }
+            }),
+            new BookmarkTool({
+                markerLayerVisibleOnLoad: true,
+                markerLabelUseEllipsisAfter: 20,
+                markerLabelUseUpperCase: false,
+                bookmarks: [{
+                    id: '6812cc22-f490-46b7-a9f3-42eb9ea58ac2',
+                    name: 'Custom Bookmark',
+                    zoom: 5,
+                    coordinates: [57.123, 16.456]
+                }],
+                onInitiated: function() {
+                    console.log('BookmarkTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('BookmarkTool: Clicked');
+                },
+                onBrowserStateCleared: function() {
+                    console.log('BookmarkTool: State cleared');
+                },
+                onAdded: function(bookmark: any) {
+                    console.log('BookmarkTool: Added', bookmark);
+                },
+                onRemoved: function(bookmark: any) {
+                    console.log('BookmarkTool: Removed', bookmark);
+                },
+                onRenamed: function(bookmark: any) {
+                    console.log('BookmarkTool: Renamed', bookmark);
+                },
+                onZoomedTo: function(bookmark: any) {
+                    console.log('BookmarkTool: Zoomed to', bookmark);
+                },
+                onCleared: function() {
+                    console.log('BookmarkTool: Cleared');
+                },
+                onDragged: function(item: any, list: any) {
+                    console.log('BookmarkTool: Dragged', item, list);
+                }
+            }),
+            new SettingsTool({
+                onInitiated: function() {
+                    console.log('SettingsTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('SettingsTool: Clicked');
+                },
+                onBrowserStateCleared: function() {
+                    console.log('SettingsTool: State cleared');
+                }
+            }),
+            new ExportPngTool({
+                filename: 'map-image-export',
+                appendTime: true,
+                onInitiated: function() {
+                    console.log('ExportPngTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('ExportPngTool: Clicked');
+                },
+                onExported: function(filename: any, content: any) {
+                    console.log('ExportPngTool: PNG exported', filename, content);
+                },
+                onError: function(error: any) {
+                    console.log('ExportPngTool: Error', error);
+                }
+            }),
             new FullscreenTool({
                 onInitiated: function() {
                     console.log('FullscreenTool: Initiated');
@@ -268,6 +464,157 @@ const initMapAndToolbar = () => {
                 },
                 onLeave: function(event: any) {
                     console.log('FullscreenTool: Leave fullscreen', event);
+                }
+            }),
+            new DrawTool({
+                onInitiated: function() {
+                    console.log('DrawTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('DrawTool: Clicked');
+                },
+                onBrowserStateCleared: function() {
+                    console.log('DrawTool: State cleared');
+                },
+                onStart: function(event: any) {
+                    console.log('DrawTool: Start');
+                },
+                onEnd: function(event: { feature: any; }) {
+                    console.log('DrawTool: End', event.feature);
+                },
+                onAbort: function(event: any) {
+                    console.log('DrawTool: Abort');
+                },
+                onError: function(event: any) {
+                    console.log('DrawTool: Error');
+                },
+                onIntersected: function(event: { feature: any; }, intersectedFeatures: any) {
+                    console.log('DrawTool: Intersected', event.feature);
+                    console.log('DrawTool: Intersected features', intersectedFeatures);
+                },
+                onSnapped: function(event: any) {
+                    console.log('DrawTool: Snapped');
+                }
+            }),
+            new EditTool({
+                hitTolerance: 5,
+                onInitiated: function() {
+                    console.log('EditTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('EditTool: Clicked');
+                },
+                onBrowserStateCleared: function() {
+                    console.log('EditTool: Sstate cleared');
+                },
+                onStyleChange: function(event: any, style: any) {
+                    console.log('EditTool: Style changed');
+                },
+                onShapeOperation: function(type: any, a: any, b: any, result: any) {
+                    console.log('EditTool: Shape operation', type);
+                },
+                onSelectAdd: function(event: any) {
+                    console.log('EditTool: Selected feature');
+                },
+                onSelectRemove: function(event: any) {
+                    console.log('EditTool: Deselected feature');
+                },
+                onModifyStart: function(event: any) {
+                    console.log('EditTool: Modify start');
+                },
+                onModifyEnd: function(event: any) {
+                    console.log('EditTool: Modify end');
+                },
+                onTranslateStart: function(event: any) {
+                    console.log('EditTool: Translate start');
+                },
+                onTranslatEend: function(event: any) {
+                    console.log('EditTool: Translate end');
+                },
+                onRemovedFeature: function(feature: any) {
+                    console.log('EditTool: Removed feature', feature);
+                },
+                onError: function(event: any) {
+                    console.log('EditTool: Error');
+                },
+                onSnapped: function(event: any) {
+                    console.log('EditTool: Snapped');
+                }
+            }),
+            new OverviewTool({
+                onInitiated: function() {
+                    console.log('OverviewTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('OverviewTool: Clicked');
+                },
+                onBrowserStateCleared: function() {
+                    console.log('OverviewTool: State cleared');
+                }
+            }),
+            new GraticuleTool({
+                color: '#3B4352E6',
+                dashed: true,
+                width: 2,
+                showLabels: true,
+                wrapX: true,
+                onInitiated: function() {
+                    console.log('GraticuleTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('GraticuleTool: Clicked');
+                },
+                onBrowserStateCleared: function() {
+                    console.log('GraticuleTool: State cleared');
+                }
+            }),
+            new MagnifyTool({
+                onInitiated: function() {
+                    console.log('MagnifyTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('MagnifyTool: Clicked');
+                },
+                onBrowserStateCleared: function() {
+                    console.log('MagnifyTool: State cleared');
+                }
+            }),
+            new HelpTool({
+                url: 'https://github.com/qulle/oltb',
+                target: '_blank',
+                onInitiated: function() {
+                    console.log('HelpTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('HelpTool: Clicked');
+                }
+            }),
+            new MyLocationTool({
+                enableHighAccuracy: true,
+                timeout: 10000,
+                description: 'This is the location that the browser was able to find. It might not be your actual location.',
+                markerLabelUseEllipsisAfter: 20,
+                markerLabelUseUpperCase: false,
+                onInitiated: function() {
+                    console.log('MyLocationTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('MyLocationTool: Clicked');
+                },
+                onLocationFound: function(location: any) {
+                    console.log('MyLocationTool: Location found', location);
+                },
+                onError: function(error: any) {
+                    console.log('MyLocationTool: Error', error);
+                }
+            }),
+            new DebugInfoTool({
+                onlyWhenGetParameter: false,
+                onInitiated: function() {
+                    console.log('DebugInfoTool: Initiated');
+                },
+                onClicked: function() {
+                    console.log('DebugInfoTool: Clicked');
                 }
             }),
             new HiddenAboutTool(),

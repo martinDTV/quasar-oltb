@@ -1,7 +1,7 @@
 <template>
   <q-layout class="contenido" view="lHh Lpr lFf">
     <NavBar />
-    <q-page-container style="height: calc(100vh - 75px + 75px)">
+    <q-page-container style="height: calc(100vh)">
       <router-view />
     </q-page-container>
     <FooterBar />

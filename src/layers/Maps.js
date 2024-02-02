@@ -5,6 +5,7 @@ import {OSM, XYZ} from 'ol/source';
 
 LayerManager.addMapLayers([
     {
+        id: '7b5399a8-9e57-4304-a233-cdf363c8ed93',
         name: 'Open Street Map',
         layer: new Tile({
             source: new OSM({
