@@ -3,7 +3,8 @@
     <q-footer class="footer bg-white">
       <q-toolbar class="full-height">
         <q-toolbar-title class="text-black toolbar-title" style="font-size: 13px; text-align: center;">
-          Secretaria de Innovación y Gobierno Abierto 2024
+          <q-img src="https://micro.appsmty.gob.mx/img/sig/mty_sig_logo_iso.svg" style="flex: none; width: 25px; height: 18px;"></q-img>
+          Secretaria de Innovación y Gobierno Abierto {{new Date().getFullYear()}}
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
