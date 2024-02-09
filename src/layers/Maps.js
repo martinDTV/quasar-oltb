@@ -1,5 +1,5 @@
 import {Tile} from 'ol/layer';
-import {LayerManager} from 'oltb/src/oltb/js/managers/LayerManager';
+import {LayerManager} from 'oltb-mira/src/oltb/js/managers/LayerManager';
 import {OSM, XYZ} from 'ol/source';
 
 

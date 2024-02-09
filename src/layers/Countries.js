@@ -1,12 +1,12 @@
 
-import {Toast} from 'oltb/src/oltb/js/common/Toast';
+import {Toast} from 'oltb-mira/src/oltb/js/common/Toast';
 import {GeoJSON} from 'ol/format';
 import {transform} from 'ol/proj';
 import {getCenter} from 'ol/extent';
-import {LogManager} from 'oltb/src/oltb/js/managers/LogManager';
+import {LogManager} from 'oltb-mira/src/oltb/js/managers/LogManager';
 import {toStringHDMS} from 'ol/coordinate';
-import {getMeasureValue} from 'oltb/src/oltb/js/helpers/Measurements';
-import {FeatureProperties} from 'oltb/src/oltb/js/helpers/constants/FeatureProperties';
+import {getMeasureValue} from 'oltb-mira/src/oltb/js/helpers/Measurements';
+import {FeatureProperties} from 'oltb-mira/src/oltb/js/helpers/constants/FeatureProperties';
 
 const FILENAME = 'layers/Countries.js';
 const CLASS_FUNC_BUTTON = 'oltb-func-btn';
