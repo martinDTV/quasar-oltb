@@ -32,7 +32,17 @@ LayerManager.addMapLayers([
             }),
             visible: false
         })
+  },{
+  name: 'ESRI Imagery/Satellite',
+        layer: new Tile({
+            source: new XYZ({
+                crossOrigin: 'anonymous',
+                url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
+            }),
+            visible: false
+        })
   },
+
   /*{
         name:'prueba',
         layer: new Tile({
