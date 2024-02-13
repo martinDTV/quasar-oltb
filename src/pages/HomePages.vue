@@ -1,9 +1,9 @@
 <template>
   <q-page-container>
-    <MapComponent />
+    <ComponentGeonode />
   </q-page-container>
 </template>
 
 <script setup lang="ts">
-import MapComponent from 'components/MapComponent.vue';
+import ComponentGeonode from 'components/ComponentGeonode.vue';
 </script>

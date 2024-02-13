@@ -1,10 +1,12 @@
 import {Tile} from 'ol/layer';
 import {LayerManager} from 'oltb-mira/src/oltb/js/managers/LayerManager';
 import {OSM, XYZ} from 'ol/source';
+import {TileWMS} from 'ol/source';
 
+const geonode = 'https://geonode.appsmty.gob.mx/api/v2/datasets/397/'
 
 LayerManager.addMapLayers([
-    {
+  {
         name: 'Open Street Map',
         layer: new Tile({
             source: new OSM({
@@ -12,7 +14,36 @@ LayerManager.addMapLayers([
             }),
             visible: true
         })
-    }, {
+    },{
+  name: 'Google Maps',
+        layer: new Tile({
+            source: new XYZ({
+                crossOrigin: 'anonymous',
+                url:'https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}'
+            }),
+            visible: false
+        })
+  },{
+  name: 'Carto Positron',
+        layer: new Tile({
+            source: new XYZ({
+                crossOrigin: 'anonymous',
+                url:'https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png'
+            }),
+            visible: false
+        })
+  },
+  /*{
+        name:'prueba',
+        layer: new Tile({
+          source: new TileWMS({
+            crossOrigin: 'anonymous',
+            attributions: 'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer">ArcGIS</a>',
+            url:'https://jsc.geonode.appsmty.gob.mx/geoserver/ows?service=WMS&request=GetMap&layers=geonode%3Auso_suelo&format=image%2Fjpeg&height=550&width=550&srs=EPSG%3A4326&bbox=-100.4419327%2C25.4796810%2C-100.1832352%2C25.7974625'
+          }),
+          visible: false
+        })
+    },{
         name: 'MONTERREY 2022',
         layer: new Tile({
             source: new XYZ({
@@ -63,58 +94,7 @@ LayerManager.addMapLayers([
             }),
             visible: false
         })
-    },
-    /*{
-        name: 'Google Satelite',
-        layer: new Tile({
-            source: new XYZ({
-                crossOrigin: 'anonymous',
-                attributions: 'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer">ArcGIS</a>',
-                url:'http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}'
-            }),
-            visible: false
-        })
-    }, {
-        name: 'Google Hybrid',
-        layer: new Tile({
-            source: new XYZ({
-                crossOrigin: 'anonymous',
-                attributions: 'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer">ArcGIS</a>',
-                url:'https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'
-            }),
-            visible: false
-        })
-    }, {
-        name: 'Google Terrain',
-        layer: new Tile({
-            source: new XYZ({
-                crossOrigin: 'anonymous',
-                attributions: 'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer">ArcGIS</a>',
-                url:'https://mt1.google.com/vt/lyrs=t&x={x}&y={y}&z={z}'
-            }),
-            visible: false
-        })
-    }, {
-        name: 'Google Traffic',
-        layer: new Tile({
-            source: new XYZ({
-                crossOrigin: 'anonymous',
-                attributions: 'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer">ArcGIS</a>',
-                url:' https://mt1.google.com/vt?lyrs=h@159000000,traffic|seconds_into_week:-1&style=3&x={x}&y={y}&z={z}'
-            }),
-            visible: false
-        })
-    }, {
-        name: 'Google Roads',
-        layer: new Tile({
-            source: new XYZ({
-                crossOrigin: 'anonymous',
-                attributions: 'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer">ArcGIS</a>',
-                url:'https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}'
-            }),
-            visible: false
-        })
-    }*/
+    },*/
 ], {
     silent: true
 });

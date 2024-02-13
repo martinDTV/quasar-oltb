@@ -2,12 +2,10 @@
   <div id="map" class="mapa" tabindex="0">
     <div id="oltb"></div>
     <div id="submenu"></div>
+    <ComponentGeonode />
   </div>
 </template>
 <script setup lang="ts">
-
-import {defineStore} from 'pinia';
-
 import 'ol/ol.css'
 import {Map, View} from 'ol';
 import {fromLonLat} from 'ol/proj';
@@ -22,6 +20,7 @@ import '../layers/Maps'
 //import '../layers/Capitals'
 //import '../layers/Countries'
 //import '../layers/Continents'
+import '../layers/Geonode'
 
 // Browser prototype extensions
 import 'oltb-mira/src/oltb/js/helpers/extensions/Cycle';
@@ -63,29 +62,14 @@ import { HiddenMapNavigationTool } from 'oltb-mira/src/oltb/js/tools/hidden-tool
 import {HiddenAboutTool} from 'oltb-mira/src/oltb/js/tools/hidden-tools/HiddenAboutTool';
 import {ZoomInTool} from 'oltb-mira/src/oltb/js/tools/ZoomInTool'
 import {ZoomOutTool} from 'oltb-mira/src/oltb/js/tools/ZoomOutTool'
-import {FullscreenTool} from 'oltb-mira/src/oltb/js/tools/FullscreenTool';
 import {LayerTool} from 'oltb-mira/src/oltb/js/tools/LayerTool'
-import {GraticuleTool} from 'oltb-mira/src/oltb/js/tools/GraticuleTool'
-import {DrawTool} from 'oltb-mira/src/oltb/js/tools/DrawTool'
 import {ImportVectorLayerTool} from 'oltb-mira/src/oltb/js/tools/ImportVectorLayerTool'
 import {ResetNorthTool} from 'oltb-mira/src/oltb/js/tools/ResetNorthTool'
 import {MeasureTool} from 'oltb-mira/src/oltb/js/tools/MeasureTool'
 import {CoordinatesTool} from 'oltb-mira/src/oltb/js/tools/CoordinatesTool'
 import {InfoTool} from 'oltb-mira/src/oltb/js/tools/InfoTool'
 import {SplitViewTool} from 'oltb-mira/src/oltb/js/tools/SplitViewTool'
-import {ThemeTool} from 'oltb-mira/src/oltb/js/tools/ThemeTool'
-import {DirectionTool} from 'oltb-mira/src/oltb/js/tools/DirectionTool'
-import {BookmarkTool} from 'oltb-mira/src/oltb/js/tools/BookmarkTool'
-import {SettingsTool} from 'oltb-mira/src/oltb/js/tools/SettingsTool'
-import {ExportPngTool} from 'oltb-mira/src/oltb/js/tools/ExportPngTool'
-import {EditTool} from 'oltb-mira/src/oltb/js/tools/EditTool'
-import {OverviewTool} from 'oltb-mira/src/oltb/js/tools/OverviewTool'
-import {MagnifyTool} from 'oltb-mira/src/oltb/js/tools/MagnifyTool'
-import {HelpTool} from 'oltb-mira/src/oltb/js/tools/HelpTool'
-import {MyLocationTool} from 'oltb-mira/src/oltb/js/tools/MyLocationTool'
-import {DebugInfoTool} from 'oltb-mira/src/oltb/js/tools/DebugInfoTool'
 import {ComponentSubmenu} from 'src/utils/ComponentSubmenu'
-import {SubmenuTool} from 'src/utils/SubmenuTool';
 
 BootstrapManager.initAsync([
   { manager: LogManager },
@@ -178,6 +162,7 @@ const initMapAndToolbar = () => {
                 }
             })
         ]),
+        layers:[],
         controls: defaultControls({
             zoom: false,
             rotate: false
@@ -246,7 +231,7 @@ const initMapAndToolbar = () => {
                     console.log('LayerTool: State cleared');
                 },
                 onMapLayerAdded: function(layerWrapper: any) {
-                    console.log('LayerTool: Map layer added', layerWrapper);
+                    console.log();
                 },
                 onMapLayerRemoved: function(layerWrapper: any) {
                     console.log('LayerTool: Map layer removed', layerWrapper);
