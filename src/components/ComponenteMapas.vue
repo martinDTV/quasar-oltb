@@ -5,6 +5,14 @@
   </div>
 </template>
 <script setup lang="ts">
+
+import {useRoute} from 'vue-router';
+import {BuscarMapaPk} from 'src/layers/GeonodePk';
+
+const router = useRoute()
+
+const pk = Number(router.params.pk)
+
 import 'ol/ol.css'
 import {Map, View} from 'ol';
 import {fromLonLat} from 'ol/proj';
@@ -678,6 +686,7 @@ const initMapAndToolbar = () => {
     BootstrapManager.setMap(map);
     BootstrapManager.ready();
     map.addControl(layerSwitcher);
+    BuscarMapaPk(pk)
 }
 
 

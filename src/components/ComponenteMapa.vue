@@ -5,6 +5,7 @@
   </div>
 </template>
 <script setup lang="ts">
+
 import 'ol/ol.css'
 import {Map, View} from 'ol';
 import {fromLonLat} from 'ol/proj';
@@ -93,7 +94,6 @@ import TileLayer from 'ol/layer/Tile';
 import {OSM, XYZ} from 'ol/source';
 import LayerSwitcher from 'ol-layerswitcher';
 import {BaseLayerOptions, GroupLayerOptions} from 'ol-layerswitcher';
-import { Tile } from 'ol/layer';
 
 BootstrapManager.initAsync([
   { manager: LogManager },

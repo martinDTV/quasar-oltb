@@ -1,9 +1,7 @@
 import {Tile} from 'ol/layer';
-import {LayerManager} from 'oltb-mira/src/oltb/js/managers/LayerManager';
+import {LayerManager} from 'oltb/src/oltb/js/managers/LayerManager';
 import {OSM, XYZ} from 'ol/source';
-import {TileWMS} from 'ol/source';
 
-const geonode = 'https://geonode.appsmty.gob.mx/api/v2/datasets/397/'
 
 LayerManager.addMapLayers([
   {
@@ -23,7 +21,7 @@ LayerManager.addMapLayers([
             }),
             visible: false
         })
-  },{
+  },/*{
   name: 'Carto Positron',
         layer: new Tile({
             source: new XYZ({
@@ -43,7 +41,7 @@ LayerManager.addMapLayers([
         })
   },
 
-  /*{
+  {
         name:'prueba',
         layer: new Tile({
           source: new TileWMS({

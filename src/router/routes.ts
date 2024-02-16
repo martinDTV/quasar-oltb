@@ -6,7 +6,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
-      { path: '/geonode', component: () => import('components/ComponentGeonode.vue') }
+      { path: '/mapa/:pk', component: () => import('components/ComponenteMapas.vue') }
     ],
   },
 

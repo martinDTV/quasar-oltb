@@ -1,21 +1,21 @@
 import {Control} from 'ol/control';
-import {DOM} from 'oltb-mira/src/oltb/js/helpers/browser/DOM';
+import {DOM} from 'oltb/src/oltb/js/helpers/browser/DOM';
 import element from 'ol-ext/util/element';
 
 // Tools
-import {ThemeTool} from 'oltb-mira/src/oltb/js/tools/ThemeTool';
-import {BookmarkTool} from 'oltb-mira/src/oltb/js/tools/BookmarkTool';
-import {SettingsTool} from 'oltb-mira/src/oltb/js/tools/SettingsTool';
-import {ExportPngTool} from 'oltb-mira/src/oltb/js/tools/ExportPngTool';
-import {FullscreenTool} from 'oltb-mira/src/oltb/js/tools/FullscreenTool';
-import {DrawTool} from 'oltb-mira/src/oltb/js/tools/DrawTool';
-import {EditTool} from 'oltb-mira/src/oltb/js/tools/EditTool';
-import {OverviewTool} from 'oltb-mira/src/oltb/js/tools/OverviewTool';
-import {GraticuleTool} from 'oltb-mira/src/oltb/js/tools/GraticuleTool';
-import {MagnifyTool} from 'oltb-mira/src/oltb/js/tools/MagnifyTool';
-import {HelpTool} from 'oltb-mira/src/oltb/js/tools/HelpTool';
-import {MyLocationTool} from 'oltb-mira/src/oltb/js/tools/MyLocationTool';
-import {DebugInfoTool} from 'oltb-mira/src/oltb/js/tools/DebugInfoTool';
+import {ThemeTool} from 'oltb/src/oltb/js/tools/ThemeTool';
+import {BookmarkTool} from 'oltb/src/oltb/js/tools/BookmarkTool';
+import {SettingsTool} from 'oltb/src/oltb/js/tools/SettingsTool';
+import {ExportPngTool} from 'oltb/src/oltb/js/tools/ExportPngTool';
+import {FullscreenTool} from 'oltb/src/oltb/js/tools/FullscreenTool';
+import {DrawTool} from 'oltb/src/oltb/js/tools/DrawTool';
+import {EditTool} from 'oltb/src/oltb/js/tools/EditTool';
+import {OverviewTool} from 'oltb/src/oltb/js/tools/OverviewTool';
+import {GraticuleTool} from 'oltb/src/oltb/js/tools/GraticuleTool';
+import {MagnifyTool} from 'oltb/src/oltb/js/tools/MagnifyTool';
+import {HelpTool} from 'oltb/src/oltb/js/tools/HelpTool';
+import {MyLocationTool} from 'oltb/src/oltb/js/tools/MyLocationTool';
+import {DebugInfoTool} from 'oltb/src/oltb/js/tools/DebugInfoTool';
 
 
 class SubmenuTool extends Control{
@@ -35,7 +35,7 @@ class SubmenuTool extends Control{
       }
     });
     const bookmarkTool = new BookmarkTool({
-      markerLayerVisibleOnLoad: true,
+      markerLayerVisibleOnLoad: false,
       markerLabelUseEllipsisAfter: 20,
       markerLabelUseUpperCase: false,
       bookmarks: [{
@@ -101,7 +101,6 @@ class SubmenuTool extends Control{
         console.log('ExportPngTool: Error', error);
       }
     })
-
     const fullScreen = new FullscreenTool({
       onInitiated: function() {
         console.log('FullscreenTool: Initiated');

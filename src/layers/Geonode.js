@@ -1,12 +1,15 @@
-import {Tile} from 'ol/layer';
-import {LayerManager} from 'oltb-mira/src/oltb/js/managers/LayerManager';
-import { OSM, TileWMS, XYZ } from 'ol/source';
+import { Tile } from 'ol/layer';
+import {LayerManager} from 'oltb/src/oltb/js/managers/LayerManager';
+import { TileWMS } from 'ol/source';
 import axios from 'axios';
+import RemoveMapLayers from 'src/utils/Herramientas/RemoveMapLayers';
 
-axios.get('https://geonode.appsmty.gob.mx/api/v2/datasets/')
+async function GetLayers(apiUrl, MapLayers) {
+  await axios.get(apiUrl)
   .then(response => {
-    console.log(response.data)
+
     const respuesta = response.data
+    console.log(respuesta)
       for(let i = 0; i < respuesta.datasets.length; i ++){
         const links = respuesta.datasets[i].links
         let url_img = ''
@@ -19,6 +22,7 @@ axios.get('https://geonode.appsmty.gob.mx/api/v2/datasets/')
         }
         if(coordenadas[0] !== 0 && coordenadas[1] !== 0){
           if(url_img !== ''){
+
             LayerManager.addMapLayers([
             {
                 name:respuesta.datasets[i].name,
@@ -38,8 +42,13 @@ axios.get('https://geonode.appsmty.gob.mx/api/v2/datasets/')
           }
         }
 
+        RemoveMapLayers(MapLayers)
+
       }
   })
   .catch(error => {
     console.log(error)
   })
+}
+
+export default GetLayers

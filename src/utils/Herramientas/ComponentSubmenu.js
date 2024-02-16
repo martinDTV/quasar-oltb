@@ -1,20 +1,20 @@
-import {DOM} from 'oltb-mira/src/oltb/js/helpers/browser/DOM';
-import {Events} from 'oltb-mira/src/oltb/js/helpers/constants/Events'
+import {DOM} from 'oltb/src/oltb/js/helpers/browser/DOM';
+import {Events} from 'oltb/src/oltb/js/helpers/constants/Events'
 import { Control } from 'ol/control';
-import {LogManager} from 'oltb-mira/src/oltb/js/managers/LogManager';
-import {StateManager} from 'oltb-mira/src/oltb/js/managers/StateManager';
-import {ShortcutKeys} from 'oltb-mira/src/oltb/js/helpers/constants/ShortcutKeys';
-import {ElementManager} from 'oltb-mira/src/oltb/js/managers/ElementManager';
-import {LocalStorageKeys} from 'oltb-mira/src/oltb/js/helpers/constants/LocalStorageKeys';
-import {SvgPaths, getIcon} from 'oltb-mira/src/oltb/js/icons/GetIcon';
-import {isShortcutKeyOnly} from 'oltb-mira/src/oltb/js/helpers/browser/IsShortcutKeyOnly';
-import { SubmenuTool } from 'src/utils/SubmenuTool';
+import {LogManager} from 'oltb/src/oltb/js/managers/LogManager';
+import {StateManager} from 'oltb/src/oltb/js/managers/StateManager';
+import {ShortcutKeys} from 'oltb/src/oltb/js/helpers/constants/ShortcutKeys';
+import {ElementManager} from 'oltb/src/oltb/js/managers/ElementManager';
+import {LocalStorageKeys} from 'oltb/src/oltb/js/helpers/constants/LocalStorageKeys';
+import {SvgPaths, getIcon} from 'src/utils/Iconos/getIcon';
+import {isShortcutKeyOnly} from 'oltb/src/oltb/js/helpers/browser/IsShortcutKeyOnly';
+import { SubmenuTool } from 'src/utils/Herramientas/SubmenuTool';
 //import {SubmenuTool} from 'src/utils/SubmenuTool';
 
 
 const FILENAME = 'utils/ComponentSubmenu.js';
 const CLASS_TOOL_BUTTON = 'oltb-tool-button';
-let PATH_ICON = `${SvgPaths.SubmenuTool.stroked}`
+
 const DefaultOptions = Object.freeze({
     onInitiated: undefined,
     onClicked: undefined,
@@ -44,7 +44,7 @@ class ComponentSubmenu extends Control {
         this.map = mapa
 
         const icon = getIcon({
-            path: PATH_ICON,
+            path: SvgPaths.SubMenuIcon.stroked,
             class: `${CLASS_TOOL_BUTTON}__icon`
         });
 
