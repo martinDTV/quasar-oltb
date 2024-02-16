@@ -72,7 +72,6 @@ import {MeasureTool} from 'oltb/src/oltb/js/tools/MeasureTool'
 import {CoordinatesTool} from 'oltb/src/oltb/js/tools/CoordinatesTool'
 import {InfoTool} from 'oltb/src/oltb/js/tools/InfoTool'
 import {SplitViewTool} from 'oltb/src/oltb/js/tools/SplitViewTool'
-import {ScaleLineTool} from 'oltb/src/oltb/js/tools/ScaleLineTool'
 import {LayerTool} from '../utils/Herramientas/Layer'
 import {ThemeTool} from 'oltb/src/oltb/js/tools/ThemeTool';
 import {BookmarkTool} from 'oltb/src/oltb/js/tools/BookmarkTool';
@@ -87,7 +86,6 @@ import {MagnifyTool} from 'oltb/src/oltb/js/tools/MagnifyTool';
 import {HelpTool} from 'oltb/src/oltb/js/tools/HelpTool';
 import {MyLocationTool} from 'oltb/src/oltb/js/tools/MyLocationTool';
 import {DebugInfoTool} from 'oltb/src/oltb/js/tools/DebugInfoTool';
-// import {ComponentSubmenu} from 'src/utils/Herramientas/ComponentSubmenu'
 
 import LayerGroup from 'ol/layer/Group';
 import TileLayer from 'ol/layer/Tile';
