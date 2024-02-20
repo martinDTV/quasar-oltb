@@ -99,7 +99,9 @@ import LayerSwitcher from 'ol-layerswitcher';
 import {BaseLayerOptions, GroupLayerOptions} from 'ol-layerswitcher';
 import {BuscarMapaPk} from 'src/layers/GeonodePk';
 
-import {watchEffect} from 'vue';
+import {watchEffect, ref} from 'vue';
+
+import {useQuasar} from 'quasar';
 
 onMounted(() => {
   const router = useRoute()
